@@ -3,5 +3,5 @@ services:
   adladin-redirects:
     image: wrlc/adladin-redirects
     ports:
-      - 5000:5000
+      - 5001:5001
     restart: always
