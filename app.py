@@ -8,17 +8,16 @@ import sys
 
 # proxy server URLs
 proxies = {
-	'AU' : 'https://proxyau.wrlc.org/login?url={}',
-	'CU' : 'https://proxycu.wrlc.org/login?url={}',
-	'DC' : 'https://proxydc.wrlc.org/login?url={}',
-	'GA' : 'https://proxyga.wrlc.org/login?url={}',
-	'GM' : '',
-    'GT' : '',
-	'GU' : 'https://proxygu.wrlc.org/login?url={}',
-	'GW' : 'https://proxygw.wrlc.org/login?url={}',
-	'HU' : 'https://proxyhu.wrlc.org/login?url={}',
-	'MU' : 'https://proxymu.wrlc.org/login?url={}',
-	'WR' : 'https://proxywr.wrlc.org/login?url={}',
+    'AU' : 'https://proxyau.wrlc.org/login?url={}',
+    'CU' : 'https://proxycu.wrlc.org/login?url={}',
+    'DC' : 'https://proxydc.wrlc.org/login?url={}',
+    'GA' : 'https://proxyga.wrlc.org/login?url={}',
+    'GM' : 'http://mutex.gmu.edu/login?url={}',
+    'GT' : 'http://proxy.library.georgetown.edu/login?url={}',
+    'GW' : 'https://proxygw.wrlc.org/login?url={}',
+    'HU' : 'https://proxyhu.wrlc.org/login?url={}',
+    'MU' : 'https://proxymu.wrlc.org/login?url={}',
+    'WR' : 'https://proxywr.wrlc.org/login?url={}',
 }
 
 ereses = {
@@ -60,9 +59,9 @@ def aladin_redirect():
         return('institution WAYF is not yet implemented')
 
     if url:
-    	redurl = proxy.format(url)
+        redurl = proxy.format(url)
     else:
-    	redurl = proxy.format('/menu')
+        redurl = proxy.format('/menu')
     app.logger.debug('redirect URL: '+redurl)
     return(redirect( redurl ))
 
