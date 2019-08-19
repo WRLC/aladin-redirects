@@ -1,10 +1,11 @@
-from flask import Flask, redirect, request
+from flask import Flask, redirect, request, render_template, url_for
 from urlparse import urlparse
 import sys
 
 # for dev/debugging: `export FLASK_ENV=development` before `flask run`
 # http://127.0.0.1:5000/Z-WEB/Aladin?inst=AU&url=http://whatismyip.com
 # http://127.0.0.1:5000/Z-WEB/Aladin?req=db&key=ALADINPROXY&url=https://erescu.wrlc.org/x/docs/37MATURANI_CUAEDU/ILL42260415.pdf
+# http://127.0.0.1:5000/Z-WEB/Aladin?url=http://whatismyip.com
 
 # proxy server URLs
 proxies = {
@@ -35,6 +36,10 @@ def doc():
     app.logger.debug('Using python version '+str(vinfo[0])+'.'+str(vinfo[1]))
     return('legacy ALADIN redirect service')
 
+@app.route('/select-inst')
+def aladin_select_inst():
+    return render_template('inst.html')
+
 @app.route('/Z-WEB/Aladin')
 def aladin_redirect():
     # see if an url was specified
@@ -56,7 +61,7 @@ def aladin_redirect():
     if inst:
         proxy = proxies[inst]
     else:
-        return('institution WAYF is not yet implemented')
+        return redirect('/select-inst?' + request.query_string)
 
     if url:
         redurl = proxy.format(url)
@@ -67,5 +72,5 @@ def aladin_redirect():
 
 
 if __name__ == '__main__':
-    app.run(debug=True,host='0.0.0.0')
-    
+    app.run(debug=True, host='0.0.0.0')
+
