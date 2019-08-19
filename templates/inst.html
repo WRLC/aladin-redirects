@@ -1,24 +1,24 @@
 {% extends 'base.html' %}
 
 {% block content %}
-  <form name="inst-form" method="get" onsubmit="return submitInst()">
-    <div class="form-group row">
-    <label for="inst" class="col-sm-2 col-form-label">Select institution:</label>
-      <select name="inst" id="inst">
-          <option value="AU">American University</option>
-          <option value="CU">Catholic University</option>
-          <option value="GA">Gallaudet University</option>
-          <option value="GM">George Mason University</option>
-          <option value="GT">Georgetown University</option>
-          <option value="GW">George Washington University</option>
-          <option value="HU">Howard University</option>
-          <option value="MU">Marymount University</option>
-          <option value="DC">University of the District of Columbia</option>
-          <option value="WR">WRLC SCF</option>
+  <form name="inst-form" method="get">
+      <div class="form-text" id="idText2">
+        <strong><em>To access your desired Library's resource, please select your University:</em></strong>
+      </div>
+    <div class="form-field">
+      <select onchange="submitInst()" name="inst" id="inst" aria-label="please select your university or institution from the list">
+        <option value="??">Select Your University ----</option>
+        <option value="AU">American University</option>
+        <option value="CU">Catholic University</option>
+        <option value="GA">Gallaudet University</option>
+        <option value="GM">George Mason University</option>
+        <option value="GT">Georgetown University</option>
+        <option value="GW">George Washington University</option>
+        <option value="HU">Howard University</option>
+        <option value="MU">Marymount University</option>
+        <option value="DC">University of the District of Columbia</option>
+        <option value="WR">WRLC SCF</option>
       </select>
-    </div>
-    <div class="form-group">
-        <button type="submit" class="btn btn-primary">Submit</button>
     </div>
   </form>
 {% endblock %}
