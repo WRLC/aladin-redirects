@@ -11,7 +11,7 @@ WorkingDirectory = /opt/local/aladin-redirects
 ExecStartPre = /bin/mkdir /run/aladin-redirects
 ExecStartPre = /bin/chown -R aladin-redirects:aladin-redirects /run/aladin-redirects
 Environment="PATH=/opt/local/aladin-redirects/aladin-redirects/bin"
-ExecStart = /opt/local/aladin-redirects/aladin-redirects/bin/gunicorn -b 127.0.0.1:8003 wsgi:app --pid /run/aladin-redirects/aladin-redirects.pid --error-logfile /opt/local/aladin-redirects/log/gunicorn.log
+ExecStart = gunicorn -b 127.0.0.1:8003 wsgi:app --pid /run/aladin-redirects/aladin-redirects.pid --error-logfile /opt/local/aladin-redirects/log/gunicorn.log
 #ExecStart = /opt/local/alma-fines/ENV/bin/gunicorn -b 127.0.0.1:8003 wsgi:app --pid /run/almafines/almafines.pid --error-logfile /opt/local/alma-fines/log/gunicorn.log --log-level debug --spew
 ExecReload = /bin/kill -s HUP $MAINPID
 ExecStop = /bin/kill -s TERM $MAINPID
