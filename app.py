@@ -36,7 +36,7 @@ def doc():
     app.logger.debug('Using python version '+str(vinfo[0])+'.'+str(vinfo[1]))
     return('legacy ALADIN redirect service')
 
-@app.route('/Z_WEB/select-inst')
+@app.route('/Z-WEB/select-inst')
 def aladin_select_inst():
     return render_template('inst.html')
 
