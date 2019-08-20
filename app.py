@@ -9,36 +9,39 @@ import sys
 
 # proxy server URLs
 proxies = {
-    'AU' : 'https://proxyau.wrlc.org/login?url={}',
-    'CU' : 'https://proxycu.wrlc.org/login?url={}',
-    'DC' : 'https://proxydc.wrlc.org/login?url={}',
-    'GA' : 'https://proxyga.wrlc.org/login?url={}',
-    'GM' : 'http://mutex.gmu.edu/login?url={}',
-    'GT' : 'http://proxy.library.georgetown.edu/login?url={}',
-    'GW' : 'https://proxygw.wrlc.org/login?url={}',
-    'HU' : 'https://proxyhu.wrlc.org/login?url={}',
-    'MU' : 'https://proxymu.wrlc.org/login?url={}',
-    'WR' : 'https://proxywr.wrlc.org/login?url={}',
+    'AU': 'https://proxyau.wrlc.org/login?url={}',
+    'CU': 'https://proxycu.wrlc.org/login?url={}',
+    'DC': 'https://proxydc.wrlc.org/login?url={}',
+    'GA': 'https://proxyga.wrlc.org/login?url={}',
+    'GM': 'http://mutex.gmu.edu/login?url={}',
+    'GT': 'http://proxy.library.georgetown.edu/login?url={}',
+    'GW': 'https://proxygw.wrlc.org/login?url={}',
+    'HU': 'https://proxyhu.wrlc.org/login?url={}',
+    'MU': 'https://proxymu.wrlc.org/login?url={}',
+    'WR': 'https://proxywr.wrlc.org/login?url={}',
 }
 
 ereses = {
-    'erescu.wrlc.org' : 'CU',
-    'eresgw.wrlc.org' : 'GW',
-    'ereshu.wrlc.org' : 'HU',
+    'erescu.wrlc.org': 'CU',
+    'eresgw.wrlc.org': 'GW',
+    'ereshu.wrlc.org': 'HU',
 }
 
 
-app = Flask(__name__)
+app = Flask(__name__, static_url_path='/Z-WEB/static')
+
 
 @app.route('/Z-WEB')
 def doc():
     vinfo = sys.version_info
     app.logger.debug('Using python version '+str(vinfo[0])+'.'+str(vinfo[1]))
-    return('legacy ALADIN redirect service')
+    return 'legacy ALADIN redirect service'
+
 
 @app.route('/Z-WEB/select-inst')
 def aladin_select_inst():
     return render_template('inst.html')
+
 
 @app.route('/Z-WEB/Aladin')
 def aladin_redirect():
@@ -50,7 +53,7 @@ def aladin_redirect():
         inst = request.args.get('inst').upper()
     else:
         if url:
-            urlparts = urlparse( url )
+            urlparts = urlparse(url)
             if urlparts.hostname in ereses.keys():
                 inst = ereses[urlparts.hostname]
             else:
@@ -68,7 +71,7 @@ def aladin_redirect():
     else:
         redurl = proxy.format('/menu')
     app.logger.debug('redirect URL: '+redurl)
-    return(redirect( redurl ))
+    return redirect(redurl)
 
 
 if __name__ == '__main__':
