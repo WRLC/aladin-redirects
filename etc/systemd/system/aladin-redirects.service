@@ -5,8 +5,8 @@ After=network.target
 [Service]
 PermissionsStartOnly = true
 PIDFile = /run/aladin-redirects/aladin-redirects.pid
-User = aladin-redirects
-Group = aladin-redirects
+User = www-data
+Group = www-data
 WorkingDirectory = /opt/local/aladin-redirects
 ExecStartPre = /bin/mkdir /run/aladin-redirects
 ExecStartPre = /bin/chown -R aladin-redirects:aladin-redirects /run/aladin-redirects
