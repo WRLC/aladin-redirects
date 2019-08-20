@@ -1,0 +1,46 @@
+#
+# go.wrlc.org provides short redirects to specific URLs
+#
+
+server {
+    listen 80;
+    listen 443 ssl;
+    ssl_certificate /etc/nginx/certs/wrlc.org.pem;
+    ssl_certificate_key /etc/nginx/certs/wrlc.org.key;
+
+    server_name go.wrlc.org;
+    root /var/www/html;
+    index mylibrary.html;
+
+    # ADFS Single Logout URLs
+    # (can't be configured in Alma because Alma adds its own ?querystring)
+    location /aulogout {
+        return 301 https://auadfs.american.edu/adfs/ls/?wa=wsignout1.0;
+    }
+    location /trlogout {
+        return 301 https://adfs.trinitydc.edu/adfs/ls/?wa=wsignout1.0;
+    }
+
+    location /showdirectives {
+        return 301 https://github.com/ExLibrisGroup/primo-explore-package;
+    }
+
+    location /step5 {
+        return 301 https://gist.github.com/ihardy/1e215856e09c41de0f9374f3f18a4683;
+    }
+
+    location /step6 {
+        return 301 https://gist.github.com/ihardy/c6dad112087961f4f0e469b0c022ba85;
+    }
+
+    location /Z-WEB {
+        include proxy_params;
+        proxy_pass http://127.0.0.1:8003;
+    }
+
+    # otherwise go to redirects pick list
+    location / {
+		#try_files $uri $uri/ =404;
+        return 301 https://redirects.wrlc.org/;
+    }
+}

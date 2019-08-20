@@ -30,13 +30,13 @@ ereses = {
 
 app = Flask(__name__)
 
-@app.route('/')
+@app.route('/Z-WEB')
 def doc():
     vinfo = sys.version_info
     app.logger.debug('Using python version '+str(vinfo[0])+'.'+str(vinfo[1]))
     return('legacy ALADIN redirect service')
 
-@app.route('/select-inst')
+@app.route('/Z_WEB/select-inst')
 def aladin_select_inst():
     return render_template('inst.html')
 
@@ -61,7 +61,7 @@ def aladin_redirect():
     if inst:
         proxy = proxies[inst]
     else:
-        return redirect('/select-inst?' + request.query_string)
+        return redirect('/Z-WEB/select-inst?' + request.query_string)
 
     if url:
         redurl = proxy.format(url)
