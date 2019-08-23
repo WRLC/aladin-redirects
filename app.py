@@ -15,9 +15,11 @@ proxies = {
     'GA': 'https://proxyga.wrlc.org/login?url={}',
     'GM': 'http://mutex.gmu.edu/login?url={}',
     'GT': 'http://proxy.library.georgetown.edu/login?url={}',
+    'GTL': 'https://proxygt-law.wrlc.org/login?url={}',
     'GW': 'https://proxygw.wrlc.org/login?url={}',
     'HU': 'https://proxyhu.wrlc.org/login?url={}',
     'MU': 'https://proxymu.wrlc.org/login?url={}',
+    'TR': 'https://proxytr.wrlc.org/login?url={}',
     'WR': 'https://proxywr.wrlc.org/login?url={}',
 }
 
