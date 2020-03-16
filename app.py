@@ -20,7 +20,7 @@ proxies = {
     'HU': 'https://proxyhu.wrlc.org/login?url={}',
     'MU': 'https://proxymu.wrlc.org/login?url={}',
     'TR': 'https://proxytr.wrlc.org/login?url={}',
-    'WR': 'https://proxywr.wrlc.org/login?url={}',
+    'WR': 'https://proxywcl.wrlc.org/login?auth=wrlc&url={}',
 }
 
 ereses = {
