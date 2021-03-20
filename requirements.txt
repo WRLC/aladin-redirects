@@ -4,7 +4,7 @@ enum34==1.1.6
 Flask==1.1.1
 gunicorn==19.9.0
 itsdangerous==1.1.0
-Jinja2==2.10.1
+Jinja2==2.11.3
 MarkupSafe==1.1.0
 pipenv==2018.11.26
 typing==3.7.4
