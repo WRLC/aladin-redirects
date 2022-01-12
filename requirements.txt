@@ -6,7 +6,7 @@ gunicorn==19.9.0
 itsdangerous==1.1.0
 Jinja2==2.11.3
 MarkupSafe==1.1.0
-pipenv==2018.11.26
+pipenv==2022.1.8
 typing==3.7.4
 virtualenv==16.3.0
 virtualenv-clone==0.5.1
