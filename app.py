@@ -1,5 +1,5 @@
 from flask import Flask, redirect, request, render_template, url_for
-from urlparse import urlparse
+from urllib.parse import urlparse
 import sys
 
 # for dev/debugging: `export FLASK_ENV=development` before `flask run`
