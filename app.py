@@ -66,7 +66,7 @@ def aladin_redirect():
     if inst:
         proxy = proxies[inst]
     else:
-        return redirect('/Z-WEB/select-inst?' + request.query_string)
+        return redirect('/Z-WEB/select-inst?' + request.query_string.decode())
 
     if url:
         redurl = proxy.format(url)
