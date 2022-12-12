@@ -26,7 +26,7 @@ git clone git@github.com:WRLC/aladin-redirects.git
 ```
 Set up python virtual environment
 ```
-venv -m python3 venv
+python3 -m venv aladin-redirects
 source venv/bin/activate
 pip install -r requirements.txt
 deactivate
