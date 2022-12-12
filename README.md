@@ -16,7 +16,7 @@ https://patron.wrlc.org/Z-WEB/Aladin?req=db&key=PROXYAUTH&url=https://www.librar
 ```
 becomes
 ```
-TBD: need some WAYF menu
+https://idp.cua.edu/idp/profile/SAML2/POST/SSO?execution=e1s1
 ```
 
 ## Installation
