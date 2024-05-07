@@ -10,4 +10,4 @@ pipenv==2023.2.4
 typing==3.7.4
 virtualenv==20.19.0
 virtualenv-clone==0.5.7
-Werkzeug==3.0.1
+Werkzeug==3.0.3
