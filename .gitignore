@@ -1,7 +1,8 @@
 __pycache__/
 venv
+.env
 .DS_Store
 .idea
 *.pyc
 aladin-redirects/
-log/
+log/*.log

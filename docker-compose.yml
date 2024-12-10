@@ -1,7 +1,27 @@
-version: "3"
 services:
-  adladin-redirects:
-    image: wrlc/adladin-redirects
-    ports:
-      - 5001:5001
-    restart: always
+  aladin_redirects:
+    build: .
+    container_name: aladin_redirects
+    volumes:
+      - .:/app
+    working_dir: /app
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.aladin_redirects.rule=Host(`aladin-redirects.wrlc.localhost`)"
+      - "traefik.http.routers.aladin_redirects.tls=true"
+      - "traefik.http.routers.aladin_redirects.entrypoints=websecure"
+    secrets:
+      - ssh_key
+      - gitconfig
+    networks:
+      - proxy
+
+secrets:
+  ssh_key:
+    file: ${SSH_KEY_FILE}
+  gitconfig:
+    file: ${GITCONFIG}
+
+networks:
+  proxy:
+    external: true
