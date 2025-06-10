@@ -12,7 +12,7 @@ Jinja2==3.1.6
 MarkupSafe==3.0.2
 packaging==25.0
 pipenv==2025.0.3
-platformdirs==4.3.7
+platformdirs==4.3.8
 virtualenv==20.31.1
 virtualenv-clone==0.5.7
 Werkzeug==3.1.3
